@@ -43,7 +43,7 @@ export default class Login extends Component {
                 if (result.Status === 'Invalid')
                     alert('Invalid User');
                 else
-                    this.props.history.push("/");
+                    this.props.history.push("/Register");
             })
 
     }
