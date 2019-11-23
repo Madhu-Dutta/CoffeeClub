@@ -12,8 +12,8 @@ function App() {
     <BrowserRouter>
         <React.Fragment>
             <Switch>
-              <Route exact path='/' component={Landing} />
-              <Route path='/Login' component={Login} />
+              {/* <Route exact path='/' component={Landing} /> */}
+              <Route path='/' component={Login} />
               <Route path='/Register' component={Register} />
               <Route path='/Home' component={Home} />
             </Switch>
