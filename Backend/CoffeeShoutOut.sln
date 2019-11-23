@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29324.140
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "coffeeDB", "coffeeDB\coffeeDB.sqlproj", "{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeApp", "CoffeeApp\CoffeeApp.csproj", "{15800F81-C6AB-479F-B649-E11B7DC53DE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B2005BC-1957-4B5F-9423-0EEC1BE8B0E0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{15800F81-C6AB-479F-B649-E11B7DC53DE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15800F81-C6AB-479F-B649-E11B7DC53DE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15800F81-C6AB-479F-B649-E11B7DC53DE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15800F81-C6AB-479F-B649-E11B7DC53DE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8C810716-843B-4326-8254-253D096EE835}
+	EndGlobalSection
+EndGlobal
