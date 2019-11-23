@@ -18,29 +18,16 @@ export default class Register extends Component {
             }
         }
     }
-
-    Email = (e) => {
+    //Handle password and email input changes
+    handleInputChange = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
         this.setState({
-            Email: e.target.value
+            [name]: value
         })
-    }
-    Password = (e) => {
-        this.setState({
-            Password: e.target.value
-        })
-    }
-    Fullname = (e) => {
-        this.setState({
-            Fullname: e.target.value
-        })
-    }
-    Phone = (e) => {
-        this.setState({
-            Phone: e.target.value
-        })
+        console.log(this.state);
     }
     
-
     register = (e) => {
 
         e.preventDefault();
@@ -69,6 +56,7 @@ export default class Register extends Component {
     }
 
     render() {
+        const { fullname, email, password, phone } = this.state;
         return (
             <div id="container">
                 <div className="header">
@@ -81,31 +69,36 @@ export default class Register extends Component {
                     <FormGroup>
                         <Input type="text" 
                         className="form-control" 
-                        onChange={this.Fullname} 
+                        name="Fullname"
+                        value={fullname}
+                        onChange={this.handleInputChange} 
                         placeholder="Fullname" 
                         required />
                     </FormGroup>
                     <FormGroup>
                         <Input type="email" 
                         className="form-control" 
-                        value={this.state.Email} 
-                        onChange={this.Email} 
+                        name="Email"
+                        value={email} 
+                        onChange={this.handleInputChange} 
                         placeholder="Email"
                         required />
                     </FormGroup>
                     <FormGroup>
                         <Input type="password" 
                         className="form-control" 
-                        value={this.state.Password} 
-                        onChange={this.Password} 
+                        name="Password"
+                        value={password} 
+                        onChange={this.handleInputChange} 
                         placeholder="Password" 
                         required />
                     </FormGroup>
                     <FormGroup>
                         <Input type="phone" 
                         className="form-control" 
-                        value={this.state.Phone} 
-                        onChange={this.Phone} 
+                        name="Phone"
+                        value={phone} 
+                        onChange={this.handleInputChange} 
                         placeholder="Phone" 
                         required />
                     </FormGroup>

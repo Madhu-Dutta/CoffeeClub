@@ -13,14 +13,17 @@ export default class Login extends Component {
         }
 
     }
-
-    handleUsernameChange = (e) => {
-        this.setState({ Email: e.target.value });
+    //Handle password and email input changes
+    handleChange = (e) => {
+        const name = e.target.name
+        const value = e.target.value
+        this.setState({
+            ...this.state,
+            [name] : value
+         });
+         console.log(this.state);
     }
-    //Password update on input text change
-    handlePasswordChange = (e) => {
-        this.setState({ Password: e.target.value });
-    }
+   
     //OnClick event on the login button
     login = (e) => {
         e.preventDefault();
@@ -43,13 +46,13 @@ export default class Login extends Component {
                 if (result.Status === 'Invalid')
                     alert('Invalid User');
                 else
-                    this.props.history.push("/Register");
+                    this.props.history.push("/");
             })
 
     }
 
     render() {
-
+        const {email, password} = this.state;
         return (
             <div id="container">
                 <div className="header">
@@ -65,8 +68,9 @@ export default class Login extends Component {
                         <Input
                         type="text" 
                         className="form-control" 
-                        onChange={this.handleUsernameChange} 
+                        onChange={this.handleChange} 
                         name="Email" 
+                        value={email}
                         placeholder="Email" 
                         required />
                     </FormGroup>
@@ -74,8 +78,9 @@ export default class Login extends Component {
                         <Input 
                         type="password" 
                         className="form-control" 
-                        onChange={this.handlePasswordChange} 
-                        name="password" 
+                        onChange={this.handleChange} 
+                        name="Password" 
+                        value={password}
                         placeholder="Password" required />
                     </FormGroup>
                     
@@ -84,7 +89,8 @@ export default class Login extends Component {
                         type="submit" 
                         onClick={this.login} 
                         value="Log In" 
-                        id="button" />
+                        id="button"
+                        />
                     </FormGroup>
                     
                     <FormGroup className="text-center">
