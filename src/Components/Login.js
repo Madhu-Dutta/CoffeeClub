@@ -26,7 +26,7 @@ export default class Login extends Component {
         e.preventDefault();
 
         // debugger;
-        fetch('http://coffe-club.azurewebsites.net/api/Login/login', {
+        fetch('https://coffe-club.azurewebsites.net/api/Login/login', {
         // fetch('http://localhost:51248/api/Login/login', {
             method: 'post',
             headers: {

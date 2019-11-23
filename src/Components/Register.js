@@ -44,7 +44,7 @@ export default class Register extends Component {
     register = (e) => {
 
         e.preventDefault();
-        fetch('http://coffe-club.azurewebsites.net/api/Login/InsertMember', {
+        fetch('https://coffe-club.azurewebsites.net/api/Login/InsertMember', {
         // fetch('http://localhost:51248/api/login/InsertMember', {
             method: 'post',
             headers: {
