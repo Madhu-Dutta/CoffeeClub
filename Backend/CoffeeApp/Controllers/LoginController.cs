@@ -34,21 +34,32 @@ namespace CoffeeApp.Controllers
                 if (ML.Id == 0)
 
                 {
-                    //if (Reg.Fullname == "" || Reg.Fullname == null)
-                    //{
-                    //    return new Response
+                    if (Reg.Fullname == "" || Reg.Fullname == null)
+                    {
+                        return new Response
 
-                    //    { Status = "Error", Message = "Invalid Data." };
-                        
-                    //}
-                    
+                        { Status = "Error", Message = "Invalid Data." };
+
+                    }
                     ML.FullName = Reg.Fullname;
 
-                    ML.Phone = Reg.Phone;
+                    if (Reg.Email == "" || Reg.Email == null)
+                    {
+                        return new Response
 
+                        { Status = "Error", Message = "Invalid Data." };
+                    }
                     ML.Email = Reg.Email;
 
+                    if (Reg.Password == "" || Reg.Password == null)
+                    {
+                        return new Response
+
+                        { Status = "Error", Message = "Invalid Data." };
+                    }
                     ML.Password = Reg.Password;
+                                       
+                    ML.Phone = Reg.Phone;
 
                     DB.MemberLogins.Add(ML);
 
@@ -56,7 +67,7 @@ namespace CoffeeApp.Controllers
 
                     return new Response
 
-                    { Status = "Success", Message = "Record SuccessFully Savedddddd." };
+                    { Status = "Success", Message = "Record SuccessFully Saved." };
 
                 }
 
@@ -87,19 +98,18 @@ namespace CoffeeApp.Controllers
 
         {
 
-            var log = DB.MemberLogins.Where(x => x.Email.Equals(login.Email) && x.Password.Equals(login.Password)).FirstOrDefault();
+            var result = DB.MemberLogins.Where(x => x.Email.Equals(login.Email) && x.Password.Equals(login.Password)).FirstOrDefault();
 
-            if (log == null)
+            if (result != null)
 
             {
-
-                return new Response { Status = "Invalid", Message = "Invalid User." };
+                return new Response { Status = "Success", Message = "Login Successful" + result.Id };
 
             }
 
             else
 
-                return new Response { Status = "Success", Message = "Login Successful" };
+                return new Response { Status = "Invalid", Message = "Invalid User." };
 
         }
 
