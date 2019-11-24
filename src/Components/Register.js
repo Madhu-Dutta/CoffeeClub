@@ -10,7 +10,8 @@ export default class Register extends Component {
             Email: '',
             Password: '',
             Phone: '',
-            //Validation checks
+            error: '',
+            // //Validation checks
             errors: {
                 fullName: '',
                 email: '',
@@ -46,26 +47,29 @@ export default class Register extends Component {
             })
         }).then((Response) => Response.json())
             .then((Result) => {
-                if (Result.Status === 'Success') {
-                    this.props.history.push("/");
+                if (Result.Status !== 'Success') {
+                    this.setState({error: "Please enter valid user details"})
+                    alert('Sorrrrrry !!!! Un-authenticated User !!!!!');
                 }
                 else {
-                    alert('Sorrrrrry !!!! Un-authenticated User !!!!!');
+                    this.props.history.push("/");
                 }
             })
     }
 
     render() {
-        const { fullname, email, password, phone } = this.state;
+        const { fullname, email, password, phone, error } = this.state;
         return (
             <div id="container">
                 <div className="header">
                     <h2 className="text-center">Register</h2>
                     <hr />
                 </div>
-                <div className="msg-block"></div>
-
+               
                 <Form name="form" onSubmit={this.register}>
+                    {/*Show error message*/}
+                    <span className="errorMsg">{error}</span>
+
                     <FormGroup>
                         <Input type="text" 
                         className="form-control" 

@@ -9,7 +9,8 @@ export default class Login extends Component {
         //Initial state
         this.state = {
             Email: '',
-            Password: ''
+            Password: '',
+            error: ''
         }
 
     }
@@ -43,8 +44,10 @@ export default class Login extends Component {
         }).then((Response) => Response.json())
             .then((result) => {
                 console.log(result);
-                if (result.Status === 'Invalid')
+                if (result.Status === 'Invalid'){
                     alert('Invalid User');
+                    this.setState({error: "Please enter valid email & password"})
+                }
                 else
                     this.props.history.push("/");
             })
@@ -52,7 +55,7 @@ export default class Login extends Component {
     }
 
     render() {
-        const {email, password} = this.state;
+        const {email, password, error} = this.state;
         return (
             <div id="container">
                 <div className="header">
@@ -60,10 +63,10 @@ export default class Login extends Component {
                     <div className="text-center">to continue to site</div>
                     <hr />
                 </div>
-                <div className="msg-block"></div>
-
+                 
                 <Form name="form" onSubmit={this.login}>
-
+                {/*Show error message*/}
+                 <span className="errorMsg">{error}</span>
                     <FormGroup>
                         <Input
                         type="text" 
