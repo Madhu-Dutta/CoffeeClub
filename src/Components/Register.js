@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
 
 export default class Register extends Component {
@@ -18,6 +17,11 @@ export default class Register extends Component {
                 password: '',
             }
         }
+    }
+
+    //Back to Landing page
+    back = () => {
+        this.props.history.push("/");
     }
     //Handle password and email input changes
     handleInputChange = (e) => {
@@ -111,19 +115,18 @@ export default class Register extends Component {
                         <Input type="submit" 
                         onClick={this.register} 
                         value="Register" 
-                        id="button" />
+                        id="Regbtn" />                        
+                    </FormGroup>                    
+                    <FormGroup>
+                        <Input 
+                        type="button" 
+                        onClick={this.back} 
+                        value="Back" 
+                        id="Backbtn"
+                        />
                     </FormGroup>
-                    <hr />
-                    <FormGroup className="text-center">
-                        <div>Already have an account?</div>
-                        <Link to="/Login" 
-                        alt="Login Link" 
-                        aria-label="re-direct to log-in page" 
-                        className="btn btn-link" 
-                        style={{ color: "black" }}>
-                            Log In
-                        </Link>
-                    </ FormGroup>
+                   
+                    
                 </Form>
             </div >
         )

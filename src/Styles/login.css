@@ -2,7 +2,7 @@
     /* font-weight: bold; */
     align-content: center; width: 400px; border: 1px solid #E5E5E5 ; padding: 1% 2%; margin: 3% auto;
   }
-  #button{ 
+  #Logbtn, #Googlebtn, #Backbtn{ 
       margin-top: 25px;
       height: 50px;
       background-color: black;

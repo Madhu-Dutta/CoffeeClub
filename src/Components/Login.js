@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, FormGroup, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 export default class Login extends Component {
     constructor(props) {
@@ -13,6 +12,10 @@ export default class Login extends Component {
             error: ''
         }
 
+    }
+    //Back to Landing Page
+    back = () => {
+        this.props.history.push("/");
     }
     //Handle password and email input changes
     handleChange = (e) => {
@@ -51,7 +54,6 @@ export default class Login extends Component {
                 else
                     this.props.history.push("/");
             })
-
     }
 
     render() {
@@ -92,18 +94,28 @@ export default class Login extends Component {
                         type="submit" 
                         onClick={this.login} 
                         value="Log In" 
-                        id="button"
+                        id="Logbtn"
+                        />
+                    </FormGroup>     
+                    <FormGroup>
+                        <Input 
+                        type="button" 
+                        onClick={this.back} 
+                        value="Back" 
+                        id="Backbtn"
                         />
                     </FormGroup>
+
+                    <hr/>          
                     
                     <FormGroup className="text-center">
-                        <div>Don't have an account?</div>
-                        <Link to="/Register" 
-                        className="btn btn-link" 
-                        aria-label="re-direct to sign-up page" 
-                        style={{ color: "black" }}>
-                            Sign Up Here
-                        </Link>
+                        <div>Login With Google</div>
+                        <Input 
+                        type="button" 
+                        onClick={this.google} 
+                        value="Google" 
+                        id="Googlebtn"
+                        />
                     </ FormGroup>
                 </Form>
             </div>
