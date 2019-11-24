@@ -13,10 +13,10 @@ namespace CoffeeApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class coffeedbEntities1 : DbContext
+    public partial class coffeedbEntities3 : DbContext
     {
-        public coffeedbEntities1()
-            : base("name=coffeedbEntities1")
+        public coffeedbEntities3()
+            : base("name=coffeedbEntities3")
         {
         }
     
@@ -27,5 +27,6 @@ namespace CoffeeApp.Models
     
         public virtual DbSet<C__RefactorLog> C__RefactorLog { get; set; }
         public virtual DbSet<MemberLogin> MemberLogins { get; set; }
+        public virtual DbSet<Record> Records { get; set; }
     }
 }

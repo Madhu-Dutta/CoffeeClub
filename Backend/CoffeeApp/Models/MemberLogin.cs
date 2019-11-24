@@ -14,10 +14,22 @@ namespace CoffeeApp.Models
     
     public partial class MemberLogin
     {
-        public int Id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MemberLogin()
+        {
+            this.Records = new HashSet<Record>();
+            this.Records1 = new HashSet<Record>();
+        }
+    
+        public int id { get; set; }
         public string FullName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Record> Records { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Record> Records1 { get; set; }
     }
 }

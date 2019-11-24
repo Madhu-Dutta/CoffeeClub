@@ -18,6 +18,15 @@ namespace CoffeeApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            //self reference loop fix
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings
+                .ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+
+            //xmlformatter error fix
+            GlobalConfiguration.Configuration.Formatters.Remove((GlobalConfiguration.Configuration.Formatters
+                .XmlFormatter));
+
         }
     }
 }

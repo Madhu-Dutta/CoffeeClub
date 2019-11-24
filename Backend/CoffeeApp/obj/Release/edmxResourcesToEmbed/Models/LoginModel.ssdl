@@ -8,16 +8,61 @@
   </EntityType>
   <EntityType Name="MemberLogin">
     <Key>
-      <PropertyRef Name="Id" />
+      <PropertyRef Name="id" />
     </Key>
-    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="FullName" Type="varchar(max)" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FullName" Type="varchar(max)" Nullable="false" />
     <Property Name="Phone" Type="varchar(max)" />
     <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
     <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
+  <EntityType Name="Records">
+    <Key>
+      <PropertyRef Name="RecordID" />
+    </Key>
+    <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="Venue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="Payment" Type="float" />
+    <Property Name="Time" Type="datetime" Nullable="false" />
+    <Property Name="PaidBy" Type="int" />
+  </EntityType>
+  <Association Name="FK_Records_Member">
+    <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="1" />
+    <End Role="Records" Type="Self.Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberLogin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Records">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Records_Member_Paid">
+    <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="0..1" />
+    <End Role="Records" Type="Self.Records" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MemberLogin">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Records">
+        <PropertyRef Name="PaidBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="coffeedbModelStoreContainer">
     <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MemberLogin" EntityType="Self.MemberLogin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Records_Member" Association="Self.FK_Records_Member">
+      <End Role="MemberLogin" EntitySet="MemberLogin" />
+      <End Role="Records" EntitySet="Records" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Records_Member_Paid" Association="Self.FK_Records_Member_Paid">
+      <End Role="MemberLogin" EntitySet="MemberLogin" />
+      <End Role="Records" EntitySet="Records" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

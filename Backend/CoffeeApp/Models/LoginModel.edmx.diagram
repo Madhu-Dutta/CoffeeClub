@@ -4,9 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ff8abc89459e4cee844858e373ca65b8" Name="Diagram1">
-        <EntityTypeShape EntityType="coffeedbModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="coffeedbModel.MemberLogin" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="a9195e6d4dee4697b3b5a99d2a55bfb3" Name="Diagram1">
+        <EntityTypeShape EntityType="coffeedbModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="coffeedbModel.MemberLogin" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="coffeedbModel.Record" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="coffeedbModel.FK_Records_Member" ManuallyRouted="false" />
+        <AssociationConnector Association="coffeedbModel.FK_Records_Member_Paid" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

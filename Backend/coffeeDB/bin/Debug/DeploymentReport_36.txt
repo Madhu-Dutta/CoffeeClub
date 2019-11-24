@@ -1,0 +1,22 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Rename
+       [dbo].[Records].[CreatedBy] (Column)
+     Drop
+       [dbo].[PK_Records_Member] (Foreign Key)
+     Alter
+       [dbo].[Records] (Table)
+     Create
+       [dbo].[FK_Records_Member] (Foreign Key)
+       [dbo].[FK_Records_Member_Paid] (Foreign Key)
+
+** Supporting actions

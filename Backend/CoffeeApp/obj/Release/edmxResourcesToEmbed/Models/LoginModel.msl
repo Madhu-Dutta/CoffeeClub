@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities1">
+  <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities3">
     <EntitySetMapping Name="C__RefactorLog">
       <EntityTypeMapping TypeName="coffeedbModel.C__RefactorLog">
         <MappingFragment StoreEntitySet="__RefactorLog">
@@ -11,11 +11,24 @@
     <EntitySetMapping Name="MemberLogins">
       <EntityTypeMapping TypeName="coffeedbModel.MemberLogin">
         <MappingFragment StoreEntitySet="MemberLogin">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="FullName" ColumnName="FullName" />
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Records">
+      <EntityTypeMapping TypeName="coffeedbModel.Record">
+        <MappingFragment StoreEntitySet="Records">
+          <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Venue" ColumnName="Venue" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Payment" ColumnName="Payment" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

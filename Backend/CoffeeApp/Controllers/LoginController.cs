@@ -14,7 +14,7 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        coffeedbEntities1 DB = new coffeedbEntities1();
+        coffeedbEntities3 DB = new coffeedbEntities3();
 
         [Route("InsertMember")]
 
@@ -31,7 +31,7 @@ namespace CoffeeApp.Controllers
                 MemberLogin ML = new MemberLogin();
 
 
-                if (ML.Id == 0)
+                if (ML.id == 0)
 
                 {
                     if (Reg.Fullname == "" || Reg.Fullname == null)
@@ -58,7 +58,7 @@ namespace CoffeeApp.Controllers
                         { Status = "Error", Message = "Invalid Data." };
                     }
                     ML.Password = Reg.Password;
-                                       
+
                     ML.Phone = Reg.Phone;
 
                     DB.MemberLogins.Add(ML);
@@ -103,7 +103,7 @@ namespace CoffeeApp.Controllers
             if (result != null)
 
             {
-                return new Response { Status = "Success", Message = "Login Successful" + result.Id };
+                return new Response { Status = "Success", Message = "Login Successful" + result.id };
 
             }
 

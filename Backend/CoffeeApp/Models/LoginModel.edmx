@@ -13,17 +13,62 @@
         </EntityType>
         <EntityType Name="MemberLogin">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FullName" Type="varchar(max)" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FullName" Type="varchar(max)" Nullable="false" />
           <Property Name="Phone" Type="varchar(max)" />
           <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
+        <EntityType Name="Records">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" Nullable="false" />
+          <Property Name="Venue" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="Payment" Type="float" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="PaidBy" Type="int" />
+        </EntityType>
+        <Association Name="FK_Records_Member">
+          <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="1" />
+          <End Role="Records" Type="Self.Records" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberLogin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Records">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Member_Paid">
+          <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="0..1" />
+          <End Role="Records" Type="Self.Records" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberLogin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Records">
+              <PropertyRef Name="PaidBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="coffeedbModelStoreContainer">
           <EntitySet Name="__RefactorLog" EntityType="Self.__RefactorLog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MemberLogin" EntityType="Self.MemberLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Records" EntityType="Self.Records" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Records_Member" Association="Self.FK_Records_Member">
+            <End Role="MemberLogin" EntitySet="MemberLogin" />
+            <End Role="Records" EntitySet="Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Member_Paid" Association="Self.FK_Records_Member_Paid">
+            <End Role="MemberLogin" EntitySet="MemberLogin" />
+            <End Role="Records" EntitySet="Records" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -38,24 +83,73 @@
         </EntityType>
         <EntityType Name="MemberLogin">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Records" Relationship="Self.FK_Records_Member" FromRole="MemberLogin" ToRole="Records" />
+          <NavigationProperty Name="Records1" Relationship="Self.FK_Records_Member_Paid" FromRole="MemberLogin" ToRole="Records" />
         </EntityType>
-        <EntityContainer Name="coffeedbEntities1" annotation:LazyLoadingEnabled="true">
+        <EntityType Name="Record">
+          <Key>
+            <PropertyRef Name="RecordID" />
+          </Key>
+          <Property Name="RecordID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Venue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+          <Property Name="Payment" Type="Double" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="PaidBy" Type="Int32" />
+          <NavigationProperty Name="MemberLogin" Relationship="Self.FK_Records_Member" FromRole="Records" ToRole="MemberLogin" />
+          <NavigationProperty Name="MemberLogin1" Relationship="Self.FK_Records_Member_Paid" FromRole="Records" ToRole="MemberLogin" />
+        </EntityType>
+        <Association Name="FK_Records_Member">
+          <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="1" />
+          <End Role="Records" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberLogin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Records">
+              <PropertyRef Name="CreatedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Records_Member_Paid">
+          <End Role="MemberLogin" Type="Self.MemberLogin" Multiplicity="0..1" />
+          <End Role="Records" Type="Self.Record" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MemberLogin">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Records">
+              <PropertyRef Name="PaidBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="coffeedbEntities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="MemberLogins" EntityType="Self.MemberLogin" />
+          <EntitySet Name="Records" EntityType="Self.Record" />
+          <AssociationSet Name="FK_Records_Member" Association="Self.FK_Records_Member">
+            <End Role="MemberLogin" EntitySet="MemberLogins" />
+            <End Role="Records" EntitySet="Records" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Records_Member_Paid" Association="Self.FK_Records_Member_Paid">
+            <End Role="MemberLogin" EntitySet="MemberLogins" />
+            <End Role="Records" EntitySet="Records" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities1">
+        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities3">
           <EntitySetMapping Name="C__RefactorLog">
             <EntityTypeMapping TypeName="coffeedbModel.C__RefactorLog">
               <MappingFragment StoreEntitySet="__RefactorLog">
@@ -66,11 +160,24 @@
           <EntitySetMapping Name="MemberLogins">
             <EntityTypeMapping TypeName="coffeedbModel.MemberLogin">
               <MappingFragment StoreEntitySet="MemberLogin">
-                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="FullName" ColumnName="FullName" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Records">
+            <EntityTypeMapping TypeName="coffeedbModel.Record">
+              <MappingFragment StoreEntitySet="Records">
+                <ScalarProperty Name="RecordID" ColumnName="RecordID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Venue" ColumnName="Venue" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Payment" ColumnName="Payment" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
