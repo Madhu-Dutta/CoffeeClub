@@ -56,7 +56,7 @@ export default class Register extends Component {
                     alert('Sorrrrrry !!!! Un-authenticated User !!!!!');
                 }
                 else {
-                    this.props.history.push("/");
+                    this.props.history.push("/Home");
                 }
             })
     }

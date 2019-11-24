@@ -52,7 +52,7 @@ export default class Login extends Component {
                     this.setState({error: "Please enter valid email & password"})
                 }
                 else
-                    this.props.history.push("/");
+                    this.props.history.push("/Home");
             })
     }
 
