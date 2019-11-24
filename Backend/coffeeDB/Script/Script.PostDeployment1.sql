@@ -16,8 +16,8 @@ BEGIN
 DELETE FROM MemberLogin;
 
 --Insert Values
-INSERT INTO MemberLogin(Email, Password, Phone, FullName) VALUES 
-('example@test.com', '1234', '444-444-444', 'Test User'),
-('maddy@test.com', '1234', '555-555-555', 'Maddy Chan');
+--INSERT INTO MemberLogin(Email, Password, Phone, FullName) VALUES 
+--('example@test.com', '1234', '444-444-444', 'Test User'),
+--('maddy@test.com', '1234', '555-555-555', 'Maddy Chan');
 
 END;

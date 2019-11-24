@@ -10,3 +10,8 @@ C:\Users\Madhu\Desktop\Backend\coffeeDB\obj\Debug\coffeeDB.sqlprojAssemblyRefere
 C:\Users\Madhu\Desktop\Backend\coffeeDB\obj\Debug\coffeeDB.dll
 C:\Users\Madhu\Desktop\Backend\coffeeDB\obj\Debug\coffeeDB.pdb
 C:\Users\Madhu\source\repos\CoffeeShoutOut\Coffee-ShoutOut-app\Backend\coffeeDB\obj\Debug\coffeeDB.sqlprojAssemblyReference.cache
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Debug\coffeeDB.dacpac
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Debug\coffeeDB.dll
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Debug\coffeeDB.pdb
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Debug\coffeeDB.dll
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Debug\coffeeDB.pdb

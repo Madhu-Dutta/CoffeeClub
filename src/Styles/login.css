@@ -17,4 +17,7 @@
       text-decoration: none;
     }
   
-  
+  .errorMsg{
+    margin: 4%;
+    color: red;
+  }

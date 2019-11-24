@@ -14,7 +14,7 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        coffeedbEntities DB = new coffeedbEntities();
+        coffeedbEntities1 DB = new coffeedbEntities1();
 
         [Route("InsertMember")]
 
@@ -34,7 +34,14 @@ namespace CoffeeApp.Controllers
                 if (ML.Id == 0)
 
                 {
+                    //if (Reg.Fullname == "" || Reg.Fullname == null)
+                    //{
+                    //    return new Response
 
+                    //    { Status = "Error", Message = "Invalid Data." };
+                        
+                    //}
+                    
                     ML.FullName = Reg.Fullname;
 
                     ML.Phone = Reg.Phone;
@@ -49,7 +56,7 @@ namespace CoffeeApp.Controllers
 
                     return new Response
 
-                    { Status = "Success", Message = "Record SuccessFully Saved." };
+                    { Status = "Success", Message = "Record SuccessFully Savedddddd." };
 
                 }
 
@@ -58,8 +65,10 @@ namespace CoffeeApp.Controllers
             catch (Exception)
 
             {
+                return new Response
 
-                throw;
+                { Status = "Error", Message = "Exception : Invalid Data." };
+                //throw;
 
             }
 

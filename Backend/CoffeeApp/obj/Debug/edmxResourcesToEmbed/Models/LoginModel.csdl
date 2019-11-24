@@ -11,12 +11,12 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
   </EntityType>
-  <EntityContainer Name="coffeedbEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="coffeedbEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
     <EntitySet Name="MemberLogins" EntityType="Self.MemberLogin" />
   </EntityContainer>
