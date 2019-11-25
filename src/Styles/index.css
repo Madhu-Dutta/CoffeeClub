@@ -1,5 +1,6 @@
-@import './base.css';
+@import './landing.css';
 @import './login.css';
 @import './signup.css';
 @import './header.css';
 @import './home.css';
+@import './postRecord.css';

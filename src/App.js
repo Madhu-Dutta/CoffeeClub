@@ -5,7 +5,8 @@ import Home from './Components/Home';
 import Landing from './Components/Landing';
 import Login from './Components/Login';
 import Register from './Components/Register';
-
+import PostRecord from './Components/PostRecord';
+import EditRecord from './Components/EditRecord';
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
               <Route path='/Login' component={Login} />
               <Route path='/Register' component={Register} />
               <Route path='/Home' component={Home} />
+              {/* Edit & Post Records path */}
+                <Route exact path="/edit/:id" component={EditRecord} />
+                <Route exact path="/postRecord" component={PostRecord} />
             </Switch>
         </React.Fragment>
     </BrowserRouter>

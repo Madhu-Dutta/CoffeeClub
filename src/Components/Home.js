@@ -7,13 +7,26 @@ import axios from 'axios';
 //URL
 const apiUrl = 'https://coffe-club.azurewebsites.net/api/records';  
 
+//Extract Date
+function transformDate(d) {
+    const date = new Date(Date.parse(d));
+    // const options = { year: "numeric", month: "long", day: "numeric" };
+    const dateString = date.toLocaleDateString("en-AU");
+    return dateString;
+}
+//Extract Time 
+function transformTime(t) {
+    const time = new Date(Date.parse(t));
+    const timeString = time.toLocaleTimeString("en-AU");
+    return timeString;
+}
+
 //Record Component - Display the table values
 const Record = props => (
     <tr>
-        <td>{props.record.Date}</td>
+        <td>{transformDate(props.record.Date)}</td>
+        <td>{transformTime(props.record.Time)}</td>
         <td>{props.record.Venue}</td>
-        <td>{props.record.Time}</td>
-
         <td>
             <Button>Edit</Button>
             <Button onClick={() => props.deleteRecord(props.record.RecordID)}>Delete</Button>  
@@ -84,8 +97,8 @@ export default class Home extends Component {
     
     render() {      
         //check if there is at least 1 record in the database (if mo : just display loading..)
-        if(this.state.records.length > 0) {
-        // if(this.state.records.length === 0) {
+        // if(this.state.records.length > 0) {
+        if(this.state.records.length === 0) {
             return(
                 <h2>loading........</h2>
             )
@@ -102,8 +115,8 @@ export default class Home extends Component {
                             <thead>
                                 <tr>
                                     <td>Date</td>
+                                    <td>Time</td>                           
                                     <td>Venue</td>
-                                    <td>Time</td>                              
                                 </tr>
                             </thead>
                             <tbody>
@@ -118,7 +131,6 @@ export default class Home extends Component {
                                 </Link>
                             </Button>                      
                     </div>
-
                 </div>             
             )
          }
