@@ -19,7 +19,7 @@ function App() {
               <Route path='/Home' component={Home} />
               {/* Edit & Post Records path */}
                 <Route exact path="/edit/:id" component={EditRecord} />
-                <Route exact path="/postRecord" component={PostRecord} />
+                <Route exact path="/PostRecord" component={PostRecord} />
             </Switch>
         </React.Fragment>
     </BrowserRouter>
