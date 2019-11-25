@@ -6,7 +6,7 @@ import Landing from './Components/Landing';
 import Login from './Components/Login';
 import Register from './Components/Register';
 import PostRecord from './Components/postRecord';
-import EditRecord from './Components/EditRecord';
+import EditRecord from './Components/editRecord';
 
 function App() {
   return (
