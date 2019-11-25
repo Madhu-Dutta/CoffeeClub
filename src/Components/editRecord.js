@@ -8,6 +8,20 @@ import Header from './Header';
 //URL
 const apiUrl = 'https://coffe-club.azurewebsites.net/api/records'; 
 
+//Extract Date
+function transformDate(d) {
+    const date = new Date(Date.parse(d));
+    // const options = { year: "numeric", month: "long", day: "numeric" };
+    const dateString = date.toLocaleDateString("en-AU");
+    return dateString;
+}
+//Extract Time 
+function transformTime(t) {
+    const time = new Date(Date.parse(t));
+    const timeString = time.toLocaleTimeString("en-AU");
+    return timeString;
+}
+
 export default class EditRecord extends React.Component {
     constructor(props){
         super(props);
@@ -31,8 +45,8 @@ export default class EditRecord extends React.Component {
           this.setState({
             RecordID: res.data.RecordID,
             Venue: res.data.Venue,
-            Time: res.data.Time,
-            Date: res.data.Date
+            Time: transformTime(res.data.Time),
+            Date: transformDate(res.data.Date)
           });
         })
         .catch(function(err) {
@@ -86,7 +100,6 @@ export default class EditRecord extends React.Component {
         })
         .catch(err => console.log('Put value: ', err));
     }
-
 
     render() {
         const {Venue, Time, Date, Payment} = this.state;

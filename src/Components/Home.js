@@ -31,7 +31,10 @@ const Record = props => (
         <td>{props.record.PaidBy}</td>
         <td>  
             {/* Edit is connected here with the edit component page */}
-            <Button><Link to={"/edit/" + props.record.RecordID}>Edit</Link></Button> 
+            <Button>
+                <Link style={{color: 'white'}} to={"/edit/" + props.record.RecordID}>
+                    Edit</Link>
+                </Button> 
             <Button onClick={() => props.deleteRecord(props.record.RecordID)}>Delete</Button>  
         </td>  
 
