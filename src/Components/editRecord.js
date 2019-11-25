@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class postRecod extends Component {
+export default class editRecord extends Component {
     render() {
         return (
             <div>
