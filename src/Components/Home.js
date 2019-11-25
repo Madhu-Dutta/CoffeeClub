@@ -27,10 +27,12 @@ const Record = props => (
         <td>{transformDate(props.record.Date)}</td>
         <td>{transformTime(props.record.Time)}</td>
         <td>{props.record.Venue}</td>
-        <td>
-            <Button>Edit</Button>
+        <td>${props.record.Payment}</td>
+        <td>{props.record.PaidBy}</td>
+        <td>  
+            {/* Edit is connected here with the edit component page */}
+            <Button><Link to={"/edit/" + props.record.RecordID}>Edit</Link></Button> 
             <Button onClick={() => props.deleteRecord(props.record.RecordID)}>Delete</Button>  
-            {/* <Button><Link style={{color: "white"}} to={"/edit/" + props.Record.RecordID}>Edit</Link></Button>  */}
         </td>  
 
     </tr>
@@ -44,7 +46,7 @@ export default class Home extends Component {
         this.state = {
             records: [],
             //to delete / edit a record
-            recordId: ''            
+            recordId: 0            
         }
     }
 
@@ -117,6 +119,8 @@ export default class Home extends Component {
                                     <td>Date</td>
                                     <td>Time</td>                           
                                     <td>Venue</td>
+                                    <td>Payment</td>
+                                    <td>Paid By</td>
                                 </tr>
                             </thead>
                             <tbody>

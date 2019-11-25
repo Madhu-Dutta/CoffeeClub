@@ -173,3 +173,4 @@ C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\bin\Micr
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Debug\CoffeeApp.csproj.CopyComplete
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Debug\CoffeeApp.dll
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Debug\CoffeeApp.pdb
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Debug\CoffeeApp.csprojAssemblyReference.cache
