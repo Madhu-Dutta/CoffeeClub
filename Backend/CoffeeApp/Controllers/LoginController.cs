@@ -14,83 +14,9 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        coffeedbEntities3 DB = new coffeedbEntities3();
+        coffeedbEntities4 DB = new coffeedbEntities4();      
 
-        [Route("InsertMember")]
-
-        [HttpPost]
-
-        public object InsertMember(Register Reg)
-
-        {
-
-            try
-
-            {
-
-                MemberLogin ML = new MemberLogin();
-
-
-                if (ML.id == 0)
-
-                {
-                    if (Reg.Fullname == "" || Reg.Fullname == null)
-                    {
-                        return new Response
-
-                        { Status = "Error", Message = "Invalid Data." };
-
-                    }
-                    ML.FullName = Reg.Fullname;
-
-                    if (Reg.Email == "" || Reg.Email == null)
-                    {
-                        return new Response
-
-                        { Status = "Error", Message = "Invalid Data." };
-                    }
-                    ML.Email = Reg.Email;
-
-                    if (Reg.Password == "" || Reg.Password == null)
-                    {
-                        return new Response
-
-                        { Status = "Error", Message = "Invalid Data." };
-                    }
-                    ML.Password = Reg.Password;
-
-                    ML.Phone = Reg.Phone;
-
-                    DB.MemberLogins.Add(ML);
-
-                    DB.SaveChanges();
-
-                    return new Response
-
-                    { Status = "Success", Message = "Record SuccessFully Saved." };
-
-                }
-
-            }
-
-            catch (Exception)
-
-            {
-                return new Response
-
-                { Status = "Error", Message = "Exception : Invalid Data." };
-                //throw;
-
-            }
-
-            return new Response
-
-            { Status = "Error", Message = "Invalid Data." };
-
-        }
-
-
-        [Route("Login")]
+        //[Route("Login")]
 
         [HttpPost]
 

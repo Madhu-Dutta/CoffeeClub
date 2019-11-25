@@ -18,7 +18,7 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FullName" Type="varchar(max)" Nullable="false" />
           <Property Name="Phone" Type="varchar(max)" />
-          <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Records">
@@ -88,7 +88,7 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FullName" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Records" Relationship="Self.FK_Records_Member" FromRole="MemberLogin" ToRole="Records" />
           <NavigationProperty Name="Records1" Relationship="Self.FK_Records_Member_Paid" FromRole="MemberLogin" ToRole="Records" />
@@ -131,7 +131,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="coffeedbEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="coffeedbEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="MemberLogins" EntityType="Self.MemberLogin" />
           <EntitySet Name="Records" EntityType="Self.Record" />
@@ -149,7 +149,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities3">
+        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities4">
           <EntitySetMapping Name="C__RefactorLog">
             <EntityTypeMapping TypeName="coffeedbModel.C__RefactorLog">
               <MappingFragment StoreEntitySet="__RefactorLog">

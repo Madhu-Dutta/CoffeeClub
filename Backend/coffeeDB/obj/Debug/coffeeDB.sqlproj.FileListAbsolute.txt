@@ -15,3 +15,13 @@ C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Debug
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Debug\coffeeDB.pdb
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Debug\coffeeDB.dll
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Debug\coffeeDB.pdb
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\bin\Debug\coffeeDB.dacpac
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\bin\Debug\coffeeDB.dll
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\bin\Debug\coffeeDB.pdb
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\coffeeDB.sqlprojAssemblyReference.cache
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\Model.xml
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\refactor.xml
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\postdeploy.sql
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\predeploy.sql
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\coffeeDB.dll
+C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\coffeeDB\obj\Debug\coffeeDB.pdb

@@ -6,7 +6,7 @@
 
 	[Phone] VARCHAR(MAX) NULL, 
 
-    [Email] NVARCHAR(MAX) NOT NULL,    
+    [Email] NVARCHAR(50) UNIQUE NOT NULL,    
 
     [Password] NVARCHAR(MAX) NOT NULL, 
 

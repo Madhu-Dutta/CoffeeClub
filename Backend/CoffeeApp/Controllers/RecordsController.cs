@@ -17,7 +17,7 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RecordsController : ApiController
     {
-        private coffeedbEntities3 db = new coffeedbEntities3();
+        private coffeedbEntities4 db = new coffeedbEntities4();
 
         // GET: api/Records
         public IQueryable<Record> GetRecords()

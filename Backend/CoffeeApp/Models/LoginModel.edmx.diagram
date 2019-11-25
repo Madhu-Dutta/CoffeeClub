@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="a9195e6d4dee4697b3b5a99d2a55bfb3" Name="Diagram1">
+      <Diagram DiagramId="33beaeda6f9242b4be1bcac901113ceb" Name="Diagram1">
         <EntityTypeShape EntityType="coffeedbModel.C__RefactorLog" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="coffeedbModel.MemberLogin" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="coffeedbModel.Record" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />

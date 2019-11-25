@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\Models\LoginModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\CoffeeApp\Models\LoginModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

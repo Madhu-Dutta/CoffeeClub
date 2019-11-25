@@ -13,10 +13,10 @@ namespace CoffeeApp.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class coffeedbEntities3 : DbContext
+    public partial class coffeedbEntities4 : DbContext
     {
-        public coffeedbEntities3()
-            : base("name=coffeedbEntities3")
+        public coffeedbEntities4()
+            : base("name=coffeedbEntities4")
         {
         }
     

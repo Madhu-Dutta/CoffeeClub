@@ -15,12 +15,7 @@ function transformDate(d) {
     const dateString = date.toLocaleDateString("en-AU");
     return dateString;
 }
-//Extract Time 
-function transformTime(t) {
-    const time = new Date(Date.parse(t));
-    const timeString = time.toLocaleTimeString("en-AU");
-    return timeString;
-}
+
 
 export default class EditRecord extends React.Component {
     constructor(props){
@@ -32,7 +27,7 @@ export default class EditRecord extends React.Component {
             Time: '',
             Date: '',
             Payment: 0,
-            CreatedBy: 95,   
+            CreatedBy: 3,   
             // PaidBy: ''
         }
     }
@@ -45,7 +40,7 @@ export default class EditRecord extends React.Component {
           this.setState({
             RecordID: res.data.RecordID,
             Venue: res.data.Venue,
-            Time: transformTime(res.data.Time),
+            Time: res.data.Time,
             Date: transformDate(res.data.Date)
           });
         })
