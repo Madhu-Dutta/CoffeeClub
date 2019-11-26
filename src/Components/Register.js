@@ -36,7 +36,7 @@ export default class Register extends Component {
     register = (e) => {
 
         e.preventDefault();
-        fetch('https://coffe-club.azurewebsites.net/api/Members', {
+        fetch('https://coffe-club.azurewebsites.net/api/members', {
         // fetch('http://localhost:51248/api/login/InsertMember', {
             method: 'post',
             headers: {
@@ -51,13 +51,8 @@ export default class Register extends Component {
             })
         }).then((Response) => Response.json())
             .then((Result) => {
-                if (Result.Status !== 'Success') {
-                    this.setState({error: "Please enter valid user details"})
-                    alert('Sorrrrrry !!!! Un-authenticated User !!!!!');
-                }
-                else {
-                    this.props.history.push("/Home");
-                }
+                console.log(Result)
+                this.props.history.push("/Home");                
             })
     }
 
