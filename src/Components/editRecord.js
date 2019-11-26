@@ -8,15 +8,6 @@ import Header from './Header';
 //URL
 const apiUrl = 'https://coffe-club.azurewebsites.net/api/records'; 
 
-//Extract Date
-function transformDate(d) {
-    const date = new Date(Date.parse(d));
-    // const options = { year: "numeric", month: "long", day: "numeric" };
-    const dateString = date.toLocaleDateString("en-AU");
-    return dateString;
-}
-
-
 export default class EditRecord extends React.Component {
     constructor(props){
         super(props);
@@ -41,7 +32,7 @@ export default class EditRecord extends React.Component {
             RecordID: res.data.RecordID,
             Venue: res.data.Venue,
             Time: res.data.Time,
-            Date: transformDate(res.data.Date)
+            Date: res.data.Date
           });
         })
         .catch(function(err) {
