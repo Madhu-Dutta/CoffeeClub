@@ -5,7 +5,8 @@ import Header from './Header';
 import axios from 'axios';
 
 //URL
-const apiUrl = 'https://coffe-club.azurewebsites.net/api/records';  
+// const apiUrl = 'https://coffe-club.azurewebsites.net/api/records';  
+const apiUrl = "http://localhost:51248/api/MemberRecords";
 
 //Extract Date
 function transformDate(d) {
@@ -23,7 +24,7 @@ function transformTime(t) {
 
 //Record Component - Display the table values
 const Record = props => (
-    <tr>
+    <tr>        
         <td>{transformDate(props.record.Date)}</td>
         <td>{transformTime(props.record.Time)}</td>
         <td>{props.record.Venue}</td>

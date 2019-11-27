@@ -1,0 +1,9 @@
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Release\coffeeDB.dacpac
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Release\coffeeDB.dll
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\bin\Release\coffeeDB.pdb
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\Model.xml
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\refactor.xml
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\postdeploy.sql
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\predeploy.sql
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\coffeeDB.dll
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\coffeeDB\obj\Release\coffeeDB.pdb

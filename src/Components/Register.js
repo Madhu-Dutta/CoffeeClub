@@ -9,6 +9,7 @@ export default class Register extends Component {
             Email: '',
             Password: '',
             Phone: '',
+            Approved: 0,
             error: '',
             // //Validation checks
             errors: {
@@ -36,8 +37,8 @@ export default class Register extends Component {
     register = (e) => {
 
         e.preventDefault();
-        fetch('https://coffe-club.azurewebsites.net/api/members', {
-        // fetch('http://localhost:51248/api/login/InsertMember', {
+        // fetch('https://coffe-club.azurewebsites.net/api/members', {
+        fetch('http://localhost:51248/api/members', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -47,12 +48,13 @@ export default class Register extends Component {
                 Fullname: this.state.Fullname,
                 Email: this.state.Email,
                 Password: this.state.Password,
-                Phone: this.state.Phone
+                Phone: this.state.Phone,
+                Approved : this.state.Approved
             })
         }).then((Response) => Response.json())
             .then((Result) => {
-                console.log(Result)
-                this.props.history.push("/Home");                
+                console.log(Result)                
+                this.props.history.push("/Pending");                
             })
     }
 

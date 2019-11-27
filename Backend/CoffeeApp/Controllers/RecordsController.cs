@@ -17,14 +17,39 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class RecordsController : ApiController
     {
-        private coffeedbEntities4 db = new coffeedbEntities4();
+        private coffeedbEntities5 db = new coffeedbEntities5();
 
         // GET: api/Records
-        public IQueryable<Record> GetRecords()
+        //public IQueryable<Record> GetRecords()
+        //{
+        //    return db.Records;
+        //}
+        
+        //public IQueryable<Record> GetRecords()
+        public IHttpActionResult GetRecords()
         {
-            return db.Records;
+            
+            var result = (from r in db.Records
+                          join m in db.MemberLogins on r.CreatedBy equals m.id
+                          where r.PaidBy == null
+                          
+                          select new
+                          {
+                              RecordID=r.RecordID,
+                              Date=r.Date,
+                              Venue=r.Venue,
+                              CreatedBy=m.FullName,
+                              Payment="-",
+                             Time=r.Time,
+                              PaidBy="-"
+                          }).ToList();
+
+            return Ok(result);
+            //return result;
+            //return Request.CreateResponse(HttpStatusCode.OK, result);
         }
 
+        
         // GET: api/Records/5
         [ResponseType(typeof(Record))]
         public async Task<IHttpActionResult> GetRecord(int id)
@@ -70,7 +95,7 @@ namespace CoffeeApp.Controllers
                 }
             }
 
-            return StatusCode(HttpStatusCode.NoContent);
+            return StatusCode(HttpStatusCode.OK);
         }
 
         // POST: api/Records

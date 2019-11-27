@@ -170,7 +170,6 @@ C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\bin\Syst
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\bin\System.Web.WebPages.Razor.xml
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\bin\Antlr3.Runtime.pdb
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Release\CoffeeApp.csprojAssemblyReference.cache
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Release\CoffeeApp.csproj.CopyComplete
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Release\CoffeeApp.dll
 C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Release\CoffeeApp.pdb
@@ -262,3 +261,4 @@ C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\CoffeeApp
 C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\CoffeeApp\obj\Release\CoffeeApp.csproj.CopyComplete
 C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\CoffeeApp\obj\Release\CoffeeApp.dll
 C:\Users\Madhu\Desktop\CoffeeClub-master (1)\CoffeeClub-master\Backend\CoffeeApp\obj\Release\CoffeeApp.pdb
+C:\Users\Madhu\source\repos\CoffeeShoutOut\CoffeeClub\Backend\CoffeeApp\obj\Release\CoffeeApp.csprojAssemblyReference.cache

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
-import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container} from 'reactstrap';
 import Header from './Header';
 
 
@@ -19,7 +19,9 @@ export default class EditRecord extends React.Component {
             Date: '',
             Payment: 0,
             CreatedBy: 3,   
-            // PaidBy: ''
+            PaidBy: 0,
+            username: '',
+            users: []
         }
     }
 
@@ -32,12 +34,23 @@ export default class EditRecord extends React.Component {
             RecordID: res.data.RecordID,
             Venue: res.data.Venue,
             Time: res.data.Time,
-            Date: res.data.Date
+            Date: res.data.Date,
+            Payment: res.data.Payment,
+            CreatedBy: res.data.CreatedBy,
+            PaidBy: res.data.PaidBy
           });
         })
         .catch(function(err) {
           console.log("Getting all prev values", err);
         });
+
+        axios.get("http://coffe-club.azurewebsites.net/api/Members").then(res => {
+        if (res.data.length > 0) {
+        this.setState({
+          users: res.data.map(user => user.id),
+        });
+      }
+    });
     }
 
     //Handle input changes
@@ -67,7 +80,8 @@ export default class EditRecord extends React.Component {
             Venue: this.state.Venue,
             Time: this.state.Time,
             Date: this.state.Date,
-            Payment: this.state.Payment
+            Payment: this.state.Payment,
+            PaidBy: this.state.PaidBy
         }
         console.log(record)
         //Axios post method called - enter ui text into database
@@ -88,7 +102,7 @@ export default class EditRecord extends React.Component {
     }
 
     render() {
-        const {Venue, Time, Date, Payment} = this.state;
+        const {Venue, Time, Date, Payment, PaidBy} = this.state;
         return (
             <React.Fragment> 
             <Header />  
@@ -119,13 +133,34 @@ export default class EditRecord extends React.Component {
                                     onChange={(e) => this.handleChange(e)} />
                         </FormGroup>
                         <FormGroup>
-                                <Label htmlFor="RecordID" style={{fontWeight: 'bolder'}}>Enter Payment</Label>
+                                <Label htmlFor="Payment" style={{fontWeight: 'bolder'}}>Enter Payment</Label>
                                     <Input 
                                     type="text" 
                                     name="Payment"
                                     value={Payment} 
                                     onChange={(e) => this.handleChange(e)} />
                         </FormGroup>
+
+                        <FormGroup>
+                                <Label htmlFor="Select Member" style={{fontWeight: 'bolder'}}>Select Member</Label>
+                                    <select
+                                    ref="userInput"
+                                    required                                    
+                                    name="PaidBy"
+                                    value={PaidBy}
+                                    onChange={(e) => this.handleChange(e)}>
+
+                                    {this.state.users.map(function (user) {
+                                    return (
+                                        <option key={user.id} value={user}>
+                                            {user}
+                                        </option>
+                                        );
+                                    })}        
+
+                                    </select>
+                        </FormGroup>
+                        
                         <Button color="primary" style={{color: 'white'}}
                             type="submit"
                             onClick={this.handleSubmit}

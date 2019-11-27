@@ -36,7 +36,7 @@ export default class PostRecord extends Component {
     //Handle submit button
     handleSubmit = (e) => {
         e.preventDefault();        
-        console.log("Submit button clicked");
+        console.log("Submit button clicked");      
 
         //body to be passed as data into database
         const record = {
@@ -54,6 +54,7 @@ export default class PostRecord extends Component {
                 "Content-Type":"application/json",
                 'Access-Control-Allow-Origin': true
               },
+              
               data: record
         })
         .then(result => {

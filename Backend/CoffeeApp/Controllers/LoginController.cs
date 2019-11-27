@@ -14,7 +14,7 @@ namespace CoffeeApp.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoginController : ApiController
     {
-        coffeedbEntities4 DB = new coffeedbEntities4();      
+        coffeedbEntities5 DB = new coffeedbEntities5();      
 
         //[Route("Login")]
 
@@ -24,12 +24,18 @@ namespace CoffeeApp.Controllers
 
         {
 
+            
             var result = DB.MemberLogins.Where(x => x.Email.Equals(login.Email) && x.Password.Equals(login.Password)).FirstOrDefault();
 
             if (result != null)
 
             {
-                return new Response { Status = "Success", Message = "Login Successful" + result.id };
+                //1=approved 0=unapproved
+                if (result.Approved == 1)
+                {
+                    return new Response { Status = "Success", Message = "Login Successful  " + result.id };
+                }
+                return new Response { Status = "Success Unapproved User", Message = "Login Successful  " + result.id };
 
             }
 

@@ -15,6 +15,8 @@
     <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Approved" Type="Int32" />
+    <Property Name="Active" Type="Int32" />
     <NavigationProperty Name="Records" Relationship="Self.FK_Records_Member" FromRole="MemberLogin" ToRole="Records" />
     <NavigationProperty Name="Records1" Relationship="Self.FK_Records_Member_Paid" FromRole="MemberLogin" ToRole="Records" />
   </EntityType>
@@ -56,7 +58,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="coffeedbEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="coffeedbEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
     <EntitySet Name="MemberLogins" EntityType="Self.MemberLogin" />
     <EntitySet Name="Records" EntityType="Self.Record" />

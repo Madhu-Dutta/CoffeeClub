@@ -11,6 +11,8 @@
     [Password] NVARCHAR(MAX) NOT NULL, 
 
 
+    [Approved] INT NULL, 
+    [Active] INT NULL, 
     CONSTRAINT [PK_MemberLogin] PRIMARY KEY CLUSTERED ([id] ASC),
 
 )

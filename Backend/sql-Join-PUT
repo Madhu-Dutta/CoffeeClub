@@ -1,0 +1,23 @@
+MemberLogin table has fullName
+Record table has CreatedBY & PaidBY
+
+select r.RecordID,r.Date, r.Venue, m1.FullName as CreatedBy, r.Payment,r.Time, m2.FullName as PaidBy from [dbo].[Records] r 
+join [dbo].[MemberLogin] m1 on r.CreatedBY=m1.id
+join [dbo].[MemberLogin] m2 on r.PaidBY=m2.id;
+--select * from [dbo].[Records];
+
+
+
+//GET SUM OF Payment
+
+select sum(r.Payment),m.FullName from [dbo].[Records] r 
+,[dbo].[MemberLogin] m where r.paidby = m.id group by m.FullName order by m.Fullname asc
+
+---select * from [dbo].[MemberLogin]
+--select r.Payment, m.FullName from [dbo].[Records] r 
+--join [dbo].[MemberLogin] m on r.paidby = m.id 
+
+
+QUERIES
+select * from [dbo].[MemberLogin]
+update  [dbo].[MemberLogin] set Approved=1 where id=23

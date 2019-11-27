@@ -20,6 +20,8 @@
           <Property Name="Phone" Type="varchar(max)" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Approved" Type="int" />
+          <Property Name="Active" Type="int" />
         </EntityType>
         <EntityType Name="Records">
           <Key>
@@ -90,6 +92,8 @@
           <Property Name="Phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Approved" Type="Int32" />
+          <Property Name="Active" Type="Int32" />
           <NavigationProperty Name="Records" Relationship="Self.FK_Records_Member" FromRole="MemberLogin" ToRole="Records" />
           <NavigationProperty Name="Records1" Relationship="Self.FK_Records_Member_Paid" FromRole="MemberLogin" ToRole="Records" />
         </EntityType>
@@ -131,7 +135,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="coffeedbEntities4" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="coffeedbEntities5" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="C__RefactorLog" EntityType="Self.C__RefactorLog" />
           <EntitySet Name="MemberLogins" EntityType="Self.MemberLogin" />
           <EntitySet Name="Records" EntityType="Self.Record" />
@@ -149,7 +153,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities4">
+        <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities5">
           <EntitySetMapping Name="C__RefactorLog">
             <EntityTypeMapping TypeName="coffeedbModel.C__RefactorLog">
               <MappingFragment StoreEntitySet="__RefactorLog">
@@ -165,6 +169,8 @@
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Approved" ColumnName="Approved" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

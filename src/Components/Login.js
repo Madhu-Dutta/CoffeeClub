@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import {Redirect} from 'react-router-dom';
 import { Form, FormGroup, Input } from 'reactstrap';
+import { AuthContext } from '../state/Auth/AuthContext';
 
 export default class Login extends Component {
     constructor(props) {
@@ -33,8 +35,8 @@ export default class Login extends Component {
         e.preventDefault();
 
         // debugger;
-        fetch('https://coffe-club.azurewebsites.net/api/Login', {
-        // fetch('http://localhost:51248/api/Login/login', {
+        // fetch('https://coffe-club.azurewebsites.net/api/Login', {
+        fetch('http://localhost:51248/api/Login/login', {
             method: 'post',
             headers: {
                 'Accept': 'application/json',
@@ -51,14 +53,27 @@ export default class Login extends Component {
                     alert('Invalid User');
                     this.setState({error: "Please enter valid email & password"})
                 }
-                else
+                else if(result.Status === 'Success'){
                     this.props.history.push("/Home");
+                    console.log(result.Message)
+                }
+                else
+                    this.props.history.push("/Pending");  
+                    console.log(result.Message)
             })
     }
 
     render() {
         const {email, password, error} = this.state;
         return (
+            <AuthContext.Consumer>
+            {context => {
+            console.log(context.userId);
+              // If userId is not null, redirect to review
+              if (context.userId != null) return <Redirect to={"/Home"} />;
+            
+            return(
+
             <div id="container">
                 <div className="header">
                     <h2 className="text-center">Log In</h2>
@@ -66,7 +81,7 @@ export default class Login extends Component {
                     <hr />
                 </div>
                  
-                <Form name="form" onSubmit={this.login}>
+                <Form name="form" onSubmit={e => this.login(e, context)}>
                 {/*Show error message*/}
                  <span className="errorMsg">{error}</span>
                     <FormGroup>
@@ -92,7 +107,7 @@ export default class Login extends Component {
                     <FormGroup>
                         <Input 
                         type="submit" 
-                        onClick={this.login} 
+                        onClick={e => this.login(e, context)} 
                         value="Log In" 
                         id="Logbtn"
                         />
@@ -119,6 +134,9 @@ export default class Login extends Component {
                     </ FormGroup>
                 </Form>
             </div>
+            )
+        }}
+        </AuthContext.Consumer>
         )
     }
 }

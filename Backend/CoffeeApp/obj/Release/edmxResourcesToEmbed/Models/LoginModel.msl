@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities4">
+  <EntityContainerMapping StorageEntityContainer="coffeedbModelStoreContainer" CdmEntityContainer="coffeedbEntities5">
     <EntitySetMapping Name="C__RefactorLog">
       <EntityTypeMapping TypeName="coffeedbModel.C__RefactorLog">
         <MappingFragment StoreEntitySet="__RefactorLog">
@@ -16,6 +16,8 @@
           <ScalarProperty Name="Phone" ColumnName="Phone" />
           <ScalarProperty Name="Email" ColumnName="Email" />
           <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Approved" ColumnName="Approved" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
