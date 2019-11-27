@@ -18,7 +18,7 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_IsAsyncSelected>True</WebStackScaffolding_IsAsyncSelected>
     <NameOfLastUsedPublishProfile>coffe-club - Web Deploy</NameOfLastUsedPublishProfile>
-    <WebStackScaffolding_DbContextTypeFullName>CoffeeApp.Models.coffeedbEntities4</WebStackScaffolding_DbContextTypeFullName>
+    <WebStackScaffolding_DbContextTypeFullName>CoffeeApp.Models.coffeedbEntities5</WebStackScaffolding_DbContextTypeFullName>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

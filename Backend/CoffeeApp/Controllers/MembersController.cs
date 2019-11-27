@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -51,8 +52,32 @@ namespace CoffeeApp.Controllers
             {
                 return BadRequest();
             }
-
-            db.Entry(memberLogin).State = EntityState.Modified;
+            MemberLogin memberLogin2 = await db.MemberLogins.FindAsync(id);
+            if (memberLogin.Approved != null && memberLogin2.Approved != memberLogin.Approved)
+            {
+                memberLogin2.Approved = memberLogin.Approved;
+            }
+            if (memberLogin.FullName != null && memberLogin2.FullName != memberLogin.FullName)
+            {
+                memberLogin2.FullName = memberLogin.FullName;
+            }
+            if (memberLogin.Email != null && memberLogin2.Email != memberLogin.Email)
+            {
+                memberLogin2.Email = memberLogin.Email;
+            }
+            if (memberLogin.Phone != null && memberLogin2.Phone != memberLogin.Phone)
+            {
+                memberLogin2.Phone = memberLogin.Phone;
+            }
+            if (memberLogin.Active !=null && memberLogin2.Active != memberLogin.Active)
+            {
+                memberLogin2.Active = memberLogin.Active;
+            }
+            if (memberLogin.Password != null && memberLogin2.Password != memberLogin.Password)
+            {
+                memberLogin2.Password = memberLogin.Password;
+             }
+            db.Entry(memberLogin2).State = EntityState.Modified;
 
             try
             {
@@ -66,11 +91,31 @@ namespace CoffeeApp.Controllers
                 }
                 else
                 {
+                    //return Ok(memberLogin);
                     throw;
                 }
             }
+            catch (DbEntityValidationException ex)
+            {
+                // Retrieve the error messages as a list of strings.
+                var errorMessages = ex.EntityValidationErrors
+                        .SelectMany(x => x.ValidationErrors)
+                        .Select(x => x.ErrorMessage);
 
-            return StatusCode(HttpStatusCode.NoContent);
+                // Join the list to a single string.
+                var fullErrorMessage = string.Join("; ", errorMessages);
+
+                // Combine the original exception message with the new one.
+                var exceptionMessage = string.Concat(ex.Message, " The validation errors are: ", fullErrorMessage);
+
+                return BadRequest(exceptionMessage.ToString());
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.ToString());
+            }
+
+            return StatusCode(HttpStatusCode.OK);
         }
 
         // POST: api/Members

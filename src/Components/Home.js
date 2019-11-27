@@ -6,7 +6,7 @@ import axios from 'axios';
 
 //URL
 // const apiUrl = 'https://coffe-club.azurewebsites.net/api/records';  
-const apiUrl = "http://localhost:51248/api/MemberRecords";
+const apiUrl = "http://localhost:51248/api/Records";
 
 //Extract Date
 function transformDate(d) {
@@ -104,13 +104,13 @@ export default class Home extends Component {
     render() {      
         //check if there is at least 1 record in the database (if mo : just display loading..)
         // if(this.state.records.length > 0) {
-        if(this.state.records.length === 0) {
-            return(
-                <h2>loading........</h2>
-            )
-        }
-         //If at least 1 customer, loop through customers array and display the result
-         else {
+        // // if(this.state.records.length === 0) {
+        //     return(
+        //         <h2>loading........</h2>
+        //     )
+        // }
+        //  //If at least 1 customer, loop through customers array and display the result
+        //  else {
             return (
                 <div>               
                     <Header />
@@ -143,4 +143,4 @@ export default class Home extends Component {
             )
          }
     }
-}
+// }

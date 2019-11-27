@@ -23,7 +23,6 @@ namespace CoffeeApp.Controllers
         public Response memberLogin(Login login)
 
         {
-
             
             var result = DB.MemberLogins.Where(x => x.Email.Equals(login.Email) && x.Password.Equals(login.Password)).FirstOrDefault();
 

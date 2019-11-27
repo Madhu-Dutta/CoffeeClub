@@ -21,3 +21,11 @@ select sum(r.Payment),m.FullName from [dbo].[Records] r
 QUERIES
 select * from [dbo].[MemberLogin]
 update  [dbo].[MemberLogin] set Approved=1 where id=23
+
+--select * from [dbo].[MemberLogin]
+--update  [dbo].[MemberLogin] set Active=1 where id=22
+--update  [dbo].[MemberLogin] set Approved=1 where id=22
+--insert into [dbo].[Records](Venue, Date, Time, CreatedBy ) 
+--VALUES ('BCD', '11/11/2016', '05/29/2015 05:50:06', 25);
+--select * from [dbo].[Records]
+select * from [dbo].[MemberLogin] where Approved=0

@@ -5,15 +5,16 @@ import {Link} from 'react-router-dom';
 import Header from '../Components/Header';
 
 
-//URL
+//URL to get only approved members
 // const apiUrl = 'https://coffe-club.azurewebsites.net/api/records';  
-const apiUrl = "http://localhost:51248/api/Members";
+const apiUrl = "http://localhost:51248/api/ApproveMembers";
 
 //Record Component - Display the table values
 const Member = props => (
     <tr>       
         <td>{props.member.id}</td> 
         <td>{props.member.FullName}</td> 
+        <td>{props.member.Email}</td> 
         <td>  
             {/* Approve/reject */}
             <Button color="success" onClick={() => props.approveMember(props.member.id)}>
@@ -31,8 +32,10 @@ export default class approval extends Component {
 
         this.state = {
             members: [],
-            id: '',
-            approve: 0   
+            Id: 0,
+            // Hard coded id for
+            id: 25,
+            Approved: 0 
         }
     }
 
@@ -51,20 +54,20 @@ export default class approval extends Component {
     }
 
     //Delete Members by id
-    rejectMember = (id) => {
+    rejectMember = (Id) => {
         console.log('Reject member check');
         const {members} = this.state;
 
         //axios call to 'api/delete/:id'
-        axios.delete(apiUrl + '/' + id)
+        axios.delete('http://localhost:51248/api/Members' + '/' + Id)
         .then(result => {
             alert("Do you wanna delete this record?");
 
             this.setState({
                 //set result to response returned from database
                 response: result,
-                //Only return the records, where the recordId does not match the value of the RecordID in the database 
-                records: members.filter(member => member.id !== member.id)
+                //Only return to members array, where the recordId does not match the value of the RecordID in the database 
+                members: members.filter(member => member.Id !== member.id)
             })
             
         })
@@ -74,20 +77,25 @@ export default class approval extends Component {
     //Approve Members by id
     approveMember = (id) => {
         console.log('Approve member check');
-        // const {members} = this.state;
         
-        // axios.put(apiUrl + '/' + id)
-        // .then(result => {
-        //     alert("Do you wanna approve this member?");
-
-        //     this.setState({
-        //         //set result to response returned from database
-        //         response: result,
-        //         members: members.filter(member => member.id !== member.id)
-        //     })
-            
-        // })
-        // .catch(err => console.log("Approve error: ", err));        
+        const members = {
+            id: this.state.id,
+            Approved: 1                
+        }
+        console.log(members)
+        axios({
+            url: ("http://localhost:51248/api/Members" + '/' + id),
+            method: "PUT",
+            headers:  {
+                "Content-Type":"application/json",
+                'Access-Control-Allow-Origin': true
+              },
+             data: members               
+        })
+        .then(result => {
+            alert('Successfully posted', result.data);           
+        })
+        .catch(err => console.log("Approve error: ", err));        
     }  
 
     
@@ -103,17 +111,18 @@ export default class approval extends Component {
 
     render() {
         return (
-            <div className="container">
+            <div>
                 <Header />
 
                 <div className="contents">
                     
                     <div className="table-responsive">
-                    <Table   style={{margin: '30px'}} dark>
+                    <Table dark>
                         <thead>
                             <tr>
                                 <td>ID</td>
                                 <td>Members</td>
+                                <td>Email</td>
                                 <td>Status</td>
                             </tr>
                         </thead>
