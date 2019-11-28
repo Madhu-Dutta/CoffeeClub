@@ -29,12 +29,13 @@ namespace CoffeeApp.Controllers
             if (result != null)
 
             {
-                //1=approved 0=unapproved
+                //1=approved 2=rejected 0=unapproved
                 if (result.Approved == 1)
                 {
-                    return new Response { Status = "Success", Message = "Login Successful  " + result.id };
+                    return new Response { Status = "Success", Message = "Login Successful  " +result.id };
                 }
-                return new Response { Status = "Success Unapproved User", Message = "Login Successful  " + result.id };
+                return new Response { Status = "Success Unapproved User", Message = "Login Successful  " };
+
 
             }
 

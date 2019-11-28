@@ -73,13 +73,13 @@ export default class PastHistory extends Component {
     render() {      
         //check if there is at least 1 record in the database (if mo : just display loading..)
         // if(this.state.records.length > 0) {
-        if(this.state.records.length === 0) {
-            return(
-                <h2>loading........</h2>
-            )
-        }
+        // if(this.state.records.length === 0) {
+        //     return(
+        //         <h2>loading........</h2>
+        //     )
+        // }
          //If at least 1 customer, loop through customers array and display the result
-         else {
+        //  else {
             return (
                 <div>               
                     <Header />
@@ -112,4 +112,4 @@ export default class PastHistory extends Component {
             )
          }
     }
-}
+// }

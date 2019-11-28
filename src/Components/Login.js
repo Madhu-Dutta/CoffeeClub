@@ -55,7 +55,7 @@ export default class Login extends Component {
                 }
                 else if(result.Status === 'Success'){
                     this.props.history.push("/Home");
-                    console.log(result.Message)
+                    console.log(result.id)
                 }
                 else
                     this.props.history.push("/Pending");  

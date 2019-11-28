@@ -9,5 +9,6 @@ namespace CoffeeApp.VM
     {
         public string Status { set; get; }
         public string Message { set; get; }
+        public string Result { set; get; }
     }
 }

@@ -31,10 +31,9 @@ export default class approval extends Component {
         super(props);
 
         this.state = {
-            members: [],
-            Id: 0,
+            members: [],           
             // Hard coded id for
-            id: 25,
+            id: 26,
             Approved: 0 
         }
     }
@@ -53,26 +52,29 @@ export default class approval extends Component {
         console.log('print the data', this.state);
     }
 
-    //Delete Members by id
-    rejectMember = (Id) => {
-        console.log('Reject member check');
-        const {members} = this.state;
-
-        //axios call to 'api/delete/:id'
-        axios.delete('http://localhost:51248/api/Members' + '/' + Id)
-        .then(result => {
-            alert("Do you wanna delete this record?");
-
-            this.setState({
-                //set result to response returned from database
-                response: result,
-                //Only return to members array, where the recordId does not match the value of the RecordID in the database 
-                members: members.filter(member => member.Id !== member.id)
-            })
-            
+    //Delete Members by id    
+    rejectMember = (id) => {
+        console.log('Approve member check');
+        
+        const members = {
+            id: this.state.id,
+            Approved: 2               
+        }
+        console.log(members)
+        axios({
+            url: ("http://localhost:51248/api/Members" + '/' + id),
+            method: "PUT",
+            headers:  {
+                "Content-Type":"application/json",
+                'Access-Control-Allow-Origin': true
+              },
+             data: members               
         })
-        .catch(err => console.log("delete error: ", err));
-    }
+        .then(result => {
+            alert('Access permission Rejected', result.data);           
+        })
+        .catch(err => console.log("Approve error: ", err));        
+    }  
     
     //Approve Members by id
     approveMember = (id) => {
